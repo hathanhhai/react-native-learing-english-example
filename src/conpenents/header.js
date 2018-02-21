@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View,Text,FlatList,TouchableOpacity,StyleSheet } from 'react-native';
 import {connect} from 'react-redux'
+import {isAdding} from '../actions/actions'
 class  Header extends Component {
     render() {
         return (
@@ -8,9 +9,7 @@ class  Header extends Component {
                     <Text/>
                     <Text>My Word</Text>
                     <TouchableOpacity onPress={()=>{
-                        this.props.dispatch({
-                            type:'TOGGLE_FORM'
-                        })
+                        this.props.isAdding ()
                     }}>
                     <Text style={{fontWeight:'bold',color:'black'}}>+</Text>
                     </TouchableOpacity>
@@ -29,4 +28,5 @@ const styles = StyleSheet.create({
     }
 });
 
-export default connect()(Header)
+
+export default connect(null,{isAdding})(Header)

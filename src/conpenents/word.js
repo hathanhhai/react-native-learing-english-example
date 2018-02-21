@@ -1,19 +1,13 @@
 import React from 'react'
 import { View,Text,FlatList,StyleSheet,TouchableOpacity } from 'react-native';
 import {connect} from 'react-redux';
-
+import {toggleShow,toggleMemorized} from '../actions/actions'
 class Word  extends React.Component {
     memoziedWord(){
-        this.props.dispatch({
-            type:'TOGGLE_MEMORIZED',
-            id:this.props.myWord.id
-        });
+        this.props.toggleMemorized(this.props.myWord.id);
     }
     showWord(){
-        this.props.dispatch({
-            type:'TOGGLE_SHOW',
-            id:this.props.myWord.id
-        });
+        this.props.toggleShow(this.props.myWord.id);
     }
  
     render() {
@@ -60,4 +54,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default connect()(Word)
+export default connect(null,{toggleMemorized,toggleShow})(Word)
