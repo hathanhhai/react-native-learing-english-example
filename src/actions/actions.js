@@ -25,3 +25,24 @@ export function toggleShow(id){
         id
     }
 }
+
+//fillter
+
+
+export function showAll(){
+    return {
+        type:'FILTER_SHOW_ALL'
+    }
+}
+
+export function showMemorized(){
+    return {
+        type:'FILTER_MEMORIZED'
+    }
+}
+
+export function showReview(){
+    return {
+        type:'FILTER_NEED_PRATICE'
+    }
+}

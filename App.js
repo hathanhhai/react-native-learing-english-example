@@ -6,7 +6,7 @@
 
 import React, { Component } from 'react';
 import { View,StyleSheet,Text } from 'react-native';
-import Main from './src/App';
+import Main from './src2/App';
 type Props = {};
 export default class App extends Component<Props> {
   render() {

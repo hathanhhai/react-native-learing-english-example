@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View,Text,FlatList,StyleSheet,TouchableOpacity } from 'react-native';
 import {connect} from 'react-redux';
+import {showAll,showMemorized,showReview} from '../actions/actions'
 class Filter extends Component {
     
     getTextStyle(stateName){
@@ -13,21 +14,15 @@ class Filter extends Component {
         return styles.buttonText;
     }
     onShowAll(){
-        this.props.dispatch({
-            type:"FILTER_SHOW_ALL"
-        })
+        this.props.showAll();
     }
 
     onMemorized(){
-        this.props.dispatch({
-            type:"FILTER_MEMORIZED"
-        })
+        this.props.showMemorized();
     }
 
     onReview(){
-        this.props.dispatch({
-            type:"FILTER_NEED_PRATICE"
-        })
+        this.props.showReview();
     }
 
    
@@ -74,4 +69,4 @@ const styles = StyleSheet.create({
     }
 }
 
-export default connect(mapStateToProps)(Filter);
+export default connect(mapStateToProps,{showMemorized,showAll,showReview})(Filter);
